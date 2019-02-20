@@ -1,0 +1,93 @@
+String Parser
+
+In this assignment, you will be implementing a string parser. Your program will load a file of operations and perform them using the parser. This parser will have the ability to convert strings to values, manipulate strings, and output the results. The program will read the input file from the command line arguments, perform the operation, and output the results. The starter code can be found here (Links to an external site.)Links to an external site..
+
+
+
+The input file will consist entirely of string conversion and manipulation operations. The conversion operations are as follows:
+
+I:123  This operation should convert to an integer with the value of 123
+
+F:3.14 This operation should convert to a float with the value of 3.14.
+
+D:352.92834 This operation should convert to a double with a value of 352.92834
+
+S:Hello World This operation should convert to a c-string with the value of “Hello World”
+
+
+
+The parser must also support the ‘Y’ operation followed by a delimiter character. This is a special character that allows multiple operations per line. Each operation will be separated by the delimiter character. For example:
+
+Y~I:43~F:21.3~I:34~S:Wow!
+
+
+
+This should parse an integer of 43, a float of 21.3, an integer of 34, and a c-string of “Wow!”. Except for the ‘Y’ operation, all other operations will exist on their own line.
+
+
+
+The class must also support the following string manipulation commands:
+
+INPUT:foo:CONCAT:bar This should input the string “foo” and concatenate it with “bar”. ie “foobar”
+
+INPUT:cs 1400:SUBSTRING:3:2  This should input the string “cs 1400” and grab the substring starting at position 3 for 2 characters. ie “14”
+
+
+Task 1 (5 Points): Finish implementing the stubbed functions to handle the basics of the conversions. Implement parseLine(...) and parseCommand(...). It may be a good idea to implement a function for separating command from argument.
+
+
+
+Task 2 (2 Points): Implement the string to object conversion functions. Implement parseInt(...), parseFloat(...), parseDouble(...), parseString(...).
+
+
+
+Task 3 (3 Points): Update the StringParser class to handle the 'Y'. The number of conversions performed by this command is only limited by the maximum line length.
+
+
+
+Task 3 (5 Points): Update the StringParser class to handle the string command "CONCAT".
+
+
+
+Task 4 (5 Points): Update the StringParser class to handle the string command "SUBSTR".
+
+
+
+Example of running against :
+Integer: 123
+
+Float: 3.140000
+
+Double: 352.928340
+
+String: Hello World
+
+Delimiter: ~
+Integer: 43
+Float: 21.299999
+Integer: 34
+String: Wow!
+
+Concat: Hello World!!!
+
+Substring: 14
+
+Parsing of file input.txt is complete
+
+
+
+Special notes: At no time is the std::string class allowed to be used on this assignment.
+
+
+
+Some helpful functions are:
+
+strlen
+strcat
+strncpy
+strcmp
+strstr
+atoi
+atol
+atof
+itoa

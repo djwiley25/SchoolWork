@@ -1,0 +1,47 @@
+In this assignment, you will use several advanced object-oriented features in C++ like copy constructor, convert constructor, and dynamic memory management.
+
+Problem description
+
+Built-in integer types in C++ cannot store very large values. For example, the maximal value of the (64 bit) unsigned long long int type is 2^64 - 1 = 18,446,744,073,709,551,615 i.e. having around 20 digits.
+
+In this assignment you will define class BigInteger for large integer values with unlimited number of digits. Partial declaration and implementation code for class BigInteger has been provided in two files BigInteger.h and BigInteger.cpp Link (Links to an external site.)Links to an external site.. Reading the code, you can see that:
+
+1. Class BigInteger has three fields. 'digits' is a dynamic array of characters to store the digits. Its current size is stored in field 'size' while 'nDigits' is the actual number of non-trivial digits.
+
+For example, to store the number 1234, you can allocate the dynamic array of 4 bytes: 'digits' = {4, 3, 2, 1}. In this case 'size' = 4 and 'nDigits' = 4. It should be noted that 'digits' stores the digits from right to left, i.e. the last digit 4 is stored as position 0 while the first digit 1 is stored as position 3. This simplifies the arthimetic operations (e.g. addition and multiplication). In addition, 'size' and 'nDigits' might not be the same. For example, we can use a dynamic array of 8 bytes to store 1234, i.e. 'digits' = {4, 3, 2, 1, 0, 0, 0, 0}. Thus, 'size' = 8 while 'nDigits' = 4.
+
+2. Class BigInteger has two public methods 'getDigit' and 'setDigit' to read or write a digit at a given position 'pos'. It should be noted that when pos >= nDigits, 'getDigit' will return 0. More important, when pos >= size, i.e. we are trying to write a position exceeding the current size, we will re-allocate 'digits' with a larger size (a power of 2 bigger than pos).
+
+For example, assume 'size' = 4, 'digits' = {4,3,2,1}, and 'nDigits' = 4. If we call getDigit(3), we will get 1 (i.e. the digit at position 3). However, calling getDigit(8) will return 0 because the digit at position 8 is zero. Now, we call setDigit(6, 5) to assign 5 to the digit at position 6. Because 'digits' currently can store only 4 digits, we re-allocate it as a new dynamic array of 8 digits (8 is the smallest power of 2 bigger than 6). After this re-allocation and assignment, we have 'size' = 8, 'digits' = {4,3,2,1,0,0,5,0} and 'nDigits' = 7.
+
+3. Because class BigInteger uses a dynamic array ('digits' is declared as a char* pointer), constructing, destroying, and copying BigInteger objects requires processing of such arrays. Therefore, we have to define the destructor, copy constructor, and copy assignment operator.
+
+Programming tasks
+
+Task 1 (4 points). Implement method 'init(int size)' to allocate memory for 'digits' and assign the given value for 'size'. The allocated array should be filled with zeros.
+
+Task 2 (8 points). Implement two constructors to initialize a BigInteger object from an int value (4 points) or a string storing an integer value (4 points). Hint: You can use method setDigit
+
+Task 3 (4 points). Overload operators << for writing a BigInteger object to the screen. This operator can use method 'print' in class BigInteger (without debug information).
+
+Task 4 (4 points). In main.cpp, complete the code to compute 999! You could use function multiply, which multiplies a BigInteger x to an int value y and shift the result p digits to the right, i.e. performing x * y * 10^p. The default value of p is 0 (i.e. no shifting for typical multiplication).
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+This assignment continues the task of implementing BigInteger in Assignment 4. In this assignment, you will overload several operators for BigInteger objects. Your submission for Assignment 5 should be used as the starter code.
+
+Programming tasks
+
+Task 1 (4 points). Overload operator + for adding two BigInteger objects. You can do this similar to function multiply, which multiplies a BigInteger x to an int value y and shift the result p digits to the right, i.e. it computes x*y*10^p x ∗ y ∗ 10 p .
+
+Task 2 (5 points). Overload operator * for multiplying two BigInteger objects. You can use function multiply as a helper function. That is, if y0, y1..., yn is the digits of y, y = \sum^n_{i=0}{y_i*10^i} y = ∑ i = 0 n y i ∗ 10 i  thus x*y = \sum^n_{i=0}{x*y_i*10^i} x ∗ y = ∑ i = 0 n x ∗ y i ∗ 10 i .
+
+Task 3 (2 points). In main.cpp, complete the code to compute the 1000th Fibonacci number. The Fibonacci sequence is defined as the following rules: Fibo[0] = 1, Fibo[1] = 1, Fibo[n] = Fibo[n-1] + Fibo[n-2].
+
+Task 4 (6 points). Overload operators == (2 points), != (1 point), < (2 points), and > (1 point) for comparing two BigInteger objects. Note that != can be defined via == and > is defined via <.
+
+Task 5 (3 points) . In main.cpp, compute 2^1000, 2^1001, and 2^2001 and verify your comparison operators using the following tests:
+
+2^1000 < 2^1001
+
+2^1000 * 2^1001 == 2^2001

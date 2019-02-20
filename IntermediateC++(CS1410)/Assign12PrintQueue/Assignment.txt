@@ -1,0 +1,15 @@
+A printer typically prints documents sent to it by the receiving order, i.e. if document X is received before document Y, X will be printed before Y. To do that, the printer puts the documents into a queue and prints them one-by-one. However, sometimes it is pretty tiresome to wait for a 1-page document while another document of hundreds pages is being printed. Thus, we might want to print the documents by their numbers of pages, i.e. shorter documents should be printed first. This requirement could be done with a priority queue, i.e. a queue in which elements are enqueued and sorted by their levels of priority. For example, rather enqueuing a newly received document at the end of the printing queue, the printer could put it before documents that are enqueued before it but longer than it.
+
+In this task, you will implement such priority queues using linked lists. Your submission is a cpp file containing code for the following tasks.
+
+Task 1 (5 points). Declare a class PrintJob to store information of printing jobs. A printing job contains the filename of a document and its number of pages. As you will use linked lists of PrintJob objects, in class PrintJob, you also need a pointer to the next PrintJob object.
+
+Task 2 (5 points). Declare a class PrintQueue which has a linked list of PrintJob objects to store the enqueued documents.
+
+Task 3 (5 points). Implement method 'enqueue' of class PrintQueue. Its prototype is
+
+void enqueue(string filename, int page)
+
+This method should create a new PrintJob object with the given document filename and number of pages. Then, it inserts this object into the linked list at the correct location, i.e. keeping the linked list always sorted by the numbers of pages of its PrintJob objects.
+
+Task 4 (5 points). Implement methods 'dequeue' and 'empty' of class PrintQueue.

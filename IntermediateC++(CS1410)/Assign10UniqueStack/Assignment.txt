@@ -1,0 +1,35 @@
+Unique Stack
+In this assignment, you will write a template class implementation of a unique stack data structure. You will also be required to handle all errors in functions using exceptions and monitor all stack operations by using exception handling. For an overview and possible implementation of a stack, you may want to read Chapter 18.1.
+
+A Unique Stack is a special kind of stack that only allows unique items to be pushed onto it. This means no duplicate items are allowed in the stack. A Unique Stack may contain any data type. For example: integers, floats, characters, strings, Person classes, etc. The Unique Stack is able to handle any data type because it uses templates instead of a data type.
+
+
+Programming Tasks:
+Create a template Unique Stack class named TUStack with the following public member functions:
+TUStack(int nSize);
+This is the constructor that initializes the  maximum size of the stack, where 'nSize' is the maximum number of items. The array of items should be dynamic
+void push(T item);
+This function 'pushes' a new, unique item onto the top of the stack.
+T pop();
+This function 'pops', or removes, an item from the top of the stack and returns it to the caller. Before returning, the function should make sure that the second item on the stack is now the first (and so on).
+int size()
+This function returns the number of items in the stack
+int position()
+This function returns the current position of the stack pointer (ie, the top of the stack)
+operator[]
+Overload the [] operator so that it returns a copy of the item located at a specified index. This operation should be read-only.
+In addition to the above required public member functions of your class, you must include exception handling to disallow any error conditions to occur in your code. Each exception class must allow the calling code (the code that uses the stack class) to obtain a detailed message about the nature of the error, the current stack size, the current position of the stack pointer, and the new input item if applicable. Here are a few exceptions you have to consider:
+initialize the maximum size of the stack with a negative value
+push duplicate items
+push an item when the stack is full
+return a copy of the item at an illegal index (e.g., negative index and index above the maximum size of the stack)
+pop value when the stack is empty
+Write driver code in your main program that clearly demonstrates all the required elements of this assignment. Specifically, your driver program must test two kinds of stack: a stack with integers and a stack with strings. Make sure to add appropriate comments to each of your test cases. It is your responsibility to prove to the grader your code is correct, not for him to guess if it worked correctly
+
+
+Helpful Hints:
+Design, implement, and test a stack with integers without considering exception handling.
+Change the stack with integers to a stack with strings without considering exception handling.
+Add the exception handling.
+Modify the tested example to be a template.
+Make sure that there are only two files, TUStack.h and MainProg.cpp. (No TUSTack.cpp!)

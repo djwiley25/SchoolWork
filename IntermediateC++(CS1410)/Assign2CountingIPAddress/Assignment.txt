@@ -1,0 +1,41 @@
+Assume that you are managing a website and you want to know who are the most frequent visitors of your site. To do that, you write a program to count the unique IP addresses in user requests. An IP address is a 32-bit non-negative integer (unsigned int in C++) assigned as the Internet address for a computer. Your program reads from a text file named input.txt the IP addresses of logged user requests, each is on a single line. To simplify your program, the first line of the input file provides the number of distinct IP addresses in the file. This program should write the output is a text file named output.txt which lists all distinct IP addresses in the input file with their corresponding frequencies sorted decreasingly. In the output file each IP address and its frequency are written on one line.
+
+Example:
+
+input.txt
+----------
+4
+0
+1
+2
+0
+3
+2
+0
+output.txt
+------------
+0 3
+2 2
+1 1
+3 1
+Since your website might receive millions of requests each day, your program should run as fast and use as little memory as possible. In this assignment, your program is expected to process an input file with a million (1,000,000) lines and ten thousand (10,000) distinct IP addresses within 10 minutes. A large input file is already provided with the starter code.
+
+The following solution is potentially able to achieve that requirement. First, you will store all the distinct IP addresses and their frequencies in an array sorted by those IP addresses. When you read an IP address from the input file, you will use the binary search algorithm to look for it in that array. If you find the IP address, just increase its frequency. If it is not there, you will insert it into the array at its proper location to keep the array sorted. After reading the input file, you sort the array in the descending order of frequencies and write its elements to the output file.
+
+The starter code (found in the shared Google directory for the class, or by following this link: https://drive.google.com/folderview?id=0B32rbCXq2_DpbTJiYUQtRU5FTVE&usp=sharing (Links to an external site.)Links to an external site.)  already implements some tasks for you. For example, it declares a class IPRecord to store an IP address and its frequency. This class has a default constructor, a method to increase the frequency by 1, a setter for the IP address field, and two getters for its two fields. It also declares a dynamic array 'myIPTable' (as a pointer IPRecord) to store all distinct IP addresses and their frequencies. We also have a variable named 'size' to store the current number of IPRecord objects stored in this array. The main processing algorithm is also implemented.
+
+Your work is to implement the remaining tasks:
+
+Task 1 (5 points). Implement a function that uses the binary search algorithm to look for an IPRecord the IPRecord array given its IP address.
+
+Task 2 (10 points). Implement a function to insert a new IP address to the IPRecord array 'myIPTable'. This function should increase the current number of IPRecord objects in this array, set the corresponding IPRecord object in the array by the given IP address, increase its frequency, and shifts it to its proper location in the array to keep all IP addresses sorted.
+
+Task 3 (5 points). Implement a function to sort the IPRecord array 'myIPTable' descendingly by the frequencies.
+
+
+
+Your code must compile with zero errors, zero warnings, and must adhere to the CS 1410 Coding Standards.pdf
+
+
+
+Turn in:  main.cpp

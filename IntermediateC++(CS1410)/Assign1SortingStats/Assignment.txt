@@ -1,0 +1,21 @@
+For this assignment, you will compare the relative efficiency of bubble sort versus selection sort.
+
+No starter code is given; you will write all the code for this assignment. Please make good use of functions in this assignment to keep your code simple and readable.  Make good use of commenting, indentation, and variable naming.
+
+1. Write a function to perform a bubble sort on a vector of random ints in ascending order.
+
+2. Write a function to perform a selection sort on a vector of random ints in ascending order.
+
+3. Verify your sort functions are working using a vector of size 10 by writing the sorted vectors to cout.
+
+4. Run your functions on vectors of sizes 100 through 1000 in increments of 100.  Collect data on the numbers of compares and swaps needed for each run.
+
+5. Display the results of your experiments to cout.
+
+Your code must compile with zero errors, zero warnings, and must adhere to the CS 1410 Coding Standards.pdf
+
+And example output file is provided (with dummy data).  Make your output follow this format closely:  sortStatsOutput.txtPreview the document
+
+
+
+Turn in: <yourcode>.cpp

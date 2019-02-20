@@ -1,0 +1,26 @@
+The Mandelbrot set is the set of complex numbers 'c' for which the sequence ( c, c² + c, (c²+c)² + c, ((c²+c)²+c)² + c, (((c²+c)²+c)²+c)² + c, ...) does not approach infinity.  More precisely, the Mandelbrot set is the set of values of c in the complex plane for which the orbit of 0 under iteration of the complex quadratic polynomial
+
+z_{n+1}=z_n^2+c
+remains bounded. That is, a complex number c is part of the Mandelbrot set if, when starting with z0 = 0 and applying the iteration repeatedly, the absolute value of zn remains bounded however large n gets
+
+In this assignment, I want you to write a program that creates a 512x512-pixel mandelbrot image in ppm format.
+
+At this point, it may be helpful for me to tell you that doing all this is actually much easier than it sounds.  Your program will be given an area of the complex plane to make a picture of.  It will select within that area a grid of 512x512 complex numbers, apply an iterative Mandelbrot function, determine an iteration count, and assign a color based on that count to the corresponding pixel in your image.
+
+Your program should accept four doubles as input from a file called "mandelinput.txt": c1.real, c1.imag, and c2.real and c2.imag. These real and imaginary values define the area of the complex plane for which a picture is desired.
+
+For each pixel in your 512x512 image, you'll interpolate between the boundaries of the complex area to determine a complex number that pixel represents.  Then you'll iterate using the equation above until either the magnitude of the complex number exceeds 2, or until your maximum iteration count is exceeded.  You'll take the number of iterations that you used, and assign a color to the pixel based on that number.  Then you'll output that pixel and go on to the next.
+
+Still confused?  We'll be doing a lot of this in class, so come to lecture prepared to think.
+
+Your program should put the mandelbrot image into a file called "mandeloutput.ppm"
+
+Pick a nice color scheme for your Mandelbrot images, and look at a few of them, just for fun.
+
+You can learn about the PPM format at http://en.wikipedia.org/wiki/PPM_imageLinks to an external site. .
+
+You can learn more about Mandelbrot images at http://en.wikipedia.org/wiki/Mandelbrot_setLinks to an external site. .
+
+Turn in:  your .cpp file.
+
+Your code must compile with zero errors and zero warnings.

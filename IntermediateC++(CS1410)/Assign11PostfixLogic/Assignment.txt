@@ -1,0 +1,43 @@
+Given an input stream of postfix logic expressions (defined below), one expression per line, followed by the letter 'q' alone on a line, replace each expression with the letter 'T' or 'F' (depending on the expression evaluation), one per line, followed by the letter 'q' alone on a line.
+
+Our postfix logic expressions are composed of a series of letters: 'T' for true and 'F' for false; and a set of postfix operators: '*' for logical AND, '+' for logical Or, and '!' for logical NOT.  Unlike the more common infix operators that you are used to (where the operator resides between the operands), in postfix operators resides after the operands.  Thus, while in infix you might write T+F (evaluating to T), in postfix you would write TF+.
+
+The beauty of postfix expressions is that you can use a stack effectively to evaluate complex expressions without the need for parentheses, by using the following rules:
+
+T - push T
+
+F - push F
+
+* - pop the top two elements, AND them together, push the result
+
++ - pop the top two elements, OR them together, push the result
+
+! - pop the top element, negate the value, push the result
+
+Thus, TF+ becomes T, TTF** becomes F, and TF+F* becomes F.
+
+Example: Given the input stream (in cin) of the following:
+
+T
+F
+TF+
+TT*
+TTFTFFTFTT!!+*+**+++*F+
+q
+
+
+Your program should output to cout:
+
+T
+F
+T
+T
+T
+q
+
+
+For this assignment, you must use the STL Stack container to implement your stack.
+
+Starter code:  none
+
+Turn in:  yourProgram.cpp

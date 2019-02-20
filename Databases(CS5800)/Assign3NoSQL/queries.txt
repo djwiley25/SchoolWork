@@ -1,0 +1,67 @@
+DJ Wiley
+A01099945
+NoSQL Assignment
+
+----View 1: Count the randomArrayItems
+{
+  "_id": "_design/countRandomArrayItems",
+  "_rev": "7-8f9710e51e2057913a45140c740a44c7",
+  "views": {
+    "view1": {
+      "reduce": "function(key, values, rereduce) {\r\n    return sum(values);\r\n}",
+      "map": "function (doc) {\n  for(var i in doc.data){\n    var person = doc.data[i];\n    emit(person.randomArrayItem, 1);\n  }\n}"
+    }
+  },
+  "language": "javascript"
+}
+
+----View 2: A count of people by gender
+{
+  "_id": "_design/countByGender",
+  "_rev": "2-c9768925f3c2012b1269d18c06e8bb84",
+  "views": {
+    "view2": {
+      "reduce": "function (keys, values, rereduce) {\n  return sum(values);\n}",
+      "map": "function (doc) {\n  for(var i in doc.data){\n    var person = doc.data[i];\n    emit(person.gender, 1);\n  }\n}"
+    }
+  },
+  "language": "javascript"
+}
+
+----View 3: A count of people by gender and name
+{
+  "_id": "_design/countByGenderAndName",
+  "_rev": "2-0b639cf6b206d9a8f7576cf5f2ceeda2",
+  "views": {
+    "view3": {
+      "reduce": "function (keys, values, rereduce) {\n  return sum(values);\n}",
+      "map": "function (doc) {\n  for(var i in doc.data){\n    var person = doc.data[i];\n    key = [person.gender, person.name];\n    emit(key, 1);\n  }\n}"
+    }
+  },
+  "language": "javascript"
+}
+
+----View 4: A count of people by tags, that is, count all the people with the given value in the tags countRandomArrayItems
+{
+  "_id": "_design/countByTags",
+  "_rev": "1-e6951ae31380e5622772eee711796bc4",
+  "views": {
+    "view4": {
+      "reduce": "_count",
+      "map": "function (doc) {\n  if(doc.data){\n    for(i in doc.data){\n      var person = doc.data[i];\n      for(j in person.tags){\n        key = person.tags[j];\n        value = 1;\n        emit(key,value);\n      }\n    }\n  }\n}"
+    }
+  },
+  "language": "javascript"
+}
+
+----View 5: The JSON of the latitude, longitude, and address of each employee that has a latitude of more than 80 (no reduce needed)
+{
+  "_id": "_design/latAndLong",
+  "_rev": "5-76250c08d0a7f55625c6386b62355e80",
+  "views": {
+    "view5": {
+      "map": "function (doc) {\n  for(var i in doc.data){\n    var person = doc.data[i];\n    if(person.latitude >= 80.0){\n      emit({latitude: person.latitude, longitude: person.longitude, address: person.address},1);\n    }\n  }\n}"
+    }
+  },
+  "language": "javascript"
+}

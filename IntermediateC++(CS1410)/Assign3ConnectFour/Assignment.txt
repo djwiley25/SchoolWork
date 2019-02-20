@@ -1,0 +1,72 @@
+Connect Four
+
+The purpose of this assignment is to give more practice in working with pointers and dynamic memory. You are required to write a Connect Four like game (Connect N game), except that your game will allow the user to select anywhere from 3 to 5 for the size of “Connection” for displaying and debugging purpose. You can find an example of the Connect Four game at the following web site: http://www.mathsisfun.com/games/connect4.html (Links to an external site.)Links to an external site.
+
+The program starts by asking the user how many connected pieces are needed to win. This number should be 3, 4, or 5. The game board has 3 more columns than the number of connected pieces to win and 2 more rows. For example, if the user selects 5 as the number of connected pieces to win, the game board has 7 rows by 8 columns. Note: The grader will use any random connected pieces other than 3, 4, and 5 to test your program. Here are some requirements about the program:
+
+The first player is the user and the second player is the computer. The computer randomly chooses which column to drop a piece on.
+Use the letter 'p' for the player and the letter 'c' for the computer.
+Draw the game board between each turn.
+Between each turn, your program must check to see if there is a winner or a tie.
+Once there is a winner, indicate if it is the player or the computer and quit the program; before quitting, be sure to release any memory that has been allocated for the game board.
+Example code has been added at Link (Links to an external site.)Links to an external site.. Your tasks are to:
+
+Properly create, initialize, and cleanup the dynamically allocated 2d array game board
+Implement the checkWinner function
+Implement the placePiece function
+Implement the printBoard function
+Your code must compile with zero errors, zero warnings, and must adhere to the CS 1410 Coding Standards.pdfPreview the documentView in a new window
+
+Turn in:  ConnectFour.cpp
+
+Example output:
+
+Welcome to connect four!
+How many connected pieces does it take to win?
+4
+You have selected 4 in a row with a game board of 7 x 6
+
+|0|1|2|3|4|5|6|
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+Player's column: 0
+
+|0|1|2|3|4|5|6|
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+|p| | | |c| | |
+Player's column: 0
+
+|0|1|2|3|4|5|6|
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+|p| | | |c| | |
+|p| | | |c| | |
+Player's column: 0
+
+|0|1|2|3|4|5|6|
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+|p| | | | | | |
+|p| | | |c| | |
+|p| | | |c| |c|
+Player's column: 0
+
+|0|1|2|3|4|5|6|
+| | | | | | | |
+| | | | | | | |
+|p| | | | | | |
+|p| | | | | | |
+|p| | | |c| | |
+|p| | | |c| |c|
+Congrats! You won!

@@ -1,0 +1,55 @@
+This homework is all about inheritance.  In this assignment, you will be given a class specification and implementation for a creature called a ProtoFish -- a simple fish-like creature -- and you will derive from that a more fleshed-out creature called a Fish.  Then you'll use that as a basis for deriving a Shark.  Finally, you'll test all your creatures to make sure you have the functionality right in your aquatic bestiary.
+
+The starter code for this project is found in the class Google Drive folder SharksFish at https://drive.google.com/open?id=0B32rbCXq2_DpcTQwT2pwOVBzY0k (Links to an external site.)Links to an external site..  In that directory you will find a main.cpp test driver, a couple of basic helper files dir.h and dir.cpp, plus a ProtoFish specification and implementation called protofish.h and protofish.cpp.  You can compile all these .cpp files together without modification to run a quick series of ProtoFish tests.
+
+ProtoFish have an age, have a dir in which they facing (up, dn, lt, or rt in a 2D array), and are either dead or not dead. ProtoFish are constructed with an age already assigned to them, have accessor functions for their dir, age, and deadness, and have a toChar() function to tell the client what ascii character should represent them on the console (^, >, V, or <, depending on the dir).  Additionally, ProtoFish have a void function point() that is used to allow the ProtoFish to change its dir to a random direction, and a timeUpdate() function by which the ProtoFish ages itself.  ProtoFish live to the ripe old age of 100, at which time they invariable become dead.
+
+Your first task is to create a Fish class that inherits from ProtoFish.  Fish should have a constructor of the form
+
+Fish(int gestationCountdown, int gestationPeriod, int startingAge);
+
+Where the gestationCountdown indicates the time left before a baby is ready, the gestationPeriod is the reset value for gestationCount after having a baby, and the startingAge is passed to the ProtoFish constructor.  Additionally, the Fish should have a function
+
+bool haveBaby();
+
+that simply returns true and resets the gestation counter if a baby is ready, and returns false otherwise.  haveBaby() does nothing else.   Fish should override the timeUpdate function in ProtoFish with
+
+void timeUpdate()
+
+that updates the fish parts and calls the ProtoFish timeUpdate() function. And it needs a function
+
+void point(char sonarMap[5][5])
+
+that sets the direction the fish is heading in.  When point is called, it is given a 5x5 array of chars called a sonarMap that depicts the world as the fish sees it, with the fish at the center.  A '.' in the sonarMap indicates an open space, while other chars in the sonarMap represent other creatures.  Fish like to point toward empty spaces, and prefer spaces that are next to other fish, even diagonal to the intended open space.  Other member variables and functions can be added to the protected area of Fish.
+
+Finally, you should derive a Shark class from your Fish class.  Shark constructors are of the form
+
+Shark(int starvationCountdown, int starvationPeriod, int gestationCountdown, int gestationPeriod, int startingAge);
+
+Where starvationCountdown indicates the time left before the Shark starves to death, starvationPeriod is the reset value for starvationCountdown after eating a Fishy meal, and the other arguments are as before, passed on to the Fish constructor.
+
+Sharks implement the additional function
+
+void eat();
+
+That simply resets the starvationCountdown, overrides
+
+char toChar();
+
+to return u, d, l, or r as its character on the console.  overrides
+
+void timeUpdate();
+
+to decrement the starvationCountdown and decides if the Shark has died, and finally overrides
+
+void point(char sonarMap[5][5]);
+
+to update the dir.  Sharks like to point toward the direction of the nearest fish on the sonarMap.
+
+You can test your sharks and fish by uncommenting portions of main.cpp which have thoughtfully been written for you.
+
+Later in the semester, we'll put some sharks and fish in a virtual ocean to see what happens.
+
+What to turn in:
+
+Put your Fish specification in a file called fish.h, your Fish implementation in a file called fish.cpp, your Shark specification in a file called shark.h, and your Shark implementation in a file called shark.cpp.  Modify main.cpp to run all the tests.  Make sure it all compiles and runs together, then zip all nine files together (main.cpp, dir.h, dir.cpp, protofish.h, protofish.cpp, fish.h, fish.cpp, shark.h, and shark.cpp) into an archive and turn that in.

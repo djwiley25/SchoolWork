@@ -1,0 +1,114 @@
+Ah, the days of automatically-dispensed tobacco products.  Once a ubiquitous fixture of night clubs and bowling alleys, the Art-o-mat vending machine brought a touch of style and elegance to carcinogen-laced inhalant devices. You popped in your quarters, pulled the correct knob, and packet of Lucky Strikes slid down the polished stainless steel chute into your eagerly awaiting nicotine-stained fingers.
+
+In this assignment, you are to write a menu-style program to simulate an updated Art-o-mat.  You program should print the following menu:
+
+      s - report the machine status
+      d - drop in a quarter
+      1 - pull the 1st knob
+      2 - pull the 2nd knob
+      3 - pull the 3rd knob
+      4 - pull the 4th knob
+      r - restock the machine
+      q - quit
+
+Any other input should be met with a "I do not understand" response.
+
+Here is an example session (user responses shown in blue):
+
+      s - report the machine status
+      d - drop in a quarter
+      1 - pull the 1st knob
+      2 - pull the 2nd knob
+      3 - pull the 3rd knob
+      4 - pull the 4th knob
+      r - restock the machine
+      q - quit
+
+ > s
+
+      1: 5 packs of Lucky Strikes
+      2: 7 packs of Camels
+      3: 1 packs of Gauloises
+      4: 6 packs of Pall Malls
+      There is $24.50 in the machine
+
+> d
+
+     ching
+
+> d
+
+     ching
+
+> 3
+
+    (nothing happens)
+
+> d
+
+     ching
+
+> 3
+
+     A pack of Gauloises slides into view.  Gauloises?  Really?
+
+> d
+
+     ching
+
+> d
+
+     ching
+
+>d
+
+     ching
+
+> 3
+
+     You hear mechanical clanking, but no cigarettes appear.
+
+> 1
+
+     (nothing happens)
+
+ > s
+
+      1: 5 packs of Lucky Strikes
+      2: 7 packs of Camels
+      3: 0 packs of Gauloises
+      4: 6 packs of Pall Malls
+      There is $26.00 in the machine
+
+> r
+
+     A grouchy-looking attendent shows up, opens the back, fiddles around a bit, closes it, and leaves.
+
+> s
+
+      1: 10 packs of Lucky Strikes
+      2: 10 packs of Camels
+      3: 10 packs of Gauloises
+      4: 10 packs of Pall Malls
+      There is $0.00 in the machine
+
+ > q
+
+     So long!
+
+You get the picture.  You are allowed to be inventive in your text and actions, as long as it makes sense within the context of the story.
+
+A few final notes:
+
+
+1. Each pack of cigarettes cost $0.75.
+
+2. Quarters only and change is not given.  If more than .75 is put into the machine before the knob is pulled, then all the monies goes into the bank.
+
+3. The maximum type of each cigarette when the machine is restocked is 10, and the maintenance person takes all the money.
+
+4. Start the simulation with the settings as shown in the demo above.
+
+Turn in:  a single .cpp file with your code in it.
+
+Your code must compile with zero errors and zero warnings.

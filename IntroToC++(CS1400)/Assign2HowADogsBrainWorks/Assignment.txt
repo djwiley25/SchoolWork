@@ -1,0 +1,22 @@
+For this assignment, you are to write a program help the user explore the inner workings of a dog's brain as illustrated above. Your program output should behave something like the following example output:
+
+What would a dog do?
+
+Is it an object?
+>n
+
+Is it a sound?
+
+> y
+
+Bark at it.
+
+
+
+
+
+ What to turn in:  a single .cpp file with your code in it.  Include in the comments your name and section number.  We'll run your programs in batch, so do not change the order in which the inputs are collected, or request any additional information.
+
+Your code must compile with zero errors and zero warnings.
+
+ 

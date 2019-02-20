@@ -1,0 +1,18 @@
+In this assignment, you are to write a ROT13 (for "rotate 13") decoder to translate a secret message from its encoded state to something readable.  In a ROT13 code, 'a' is shifted 13 letters to 'n', 'B' to 'O', 'c' to 'p', 'D' to 'Q', ..., 'N' to 'A', 'o' to 'b', 'P' to 'C', 'q' to 'd', etc.
+
+Only letters are affected; punctuation, spaces, and all other characters remain the same.
+
+Your program should read the secret message out of a file called "secretMessage.txt" and should write the decoded message into a file called "decodedMessage.txt"  Please take care to name the files exactly as shown in this description, paying particular care to capitalization.  Regardless of how it works on *your* computer, the one we test it on *is* case sensitive.
+
+There are a couple of functions that may make your job easier.  I recommend ios::get(char) and ios::eof() as being particularly helpful.
+
+Turn in:  your .cpp file.
+
+Your code must compile with zero errors and zero warnings.
+
+Here is a sample ROT13-encoded message to get you started:
+
+"Lbh unir gb fgnl va funcr. Zl tenaqzbgure, fur fgnegrq
+jnyxvat svir zvyrf n qnl jura fur jnf 60. Fur’f 97 gbqnl
+naq jr qba’g xabj jurer gur uryy fur vf."
+--R. QrTraref

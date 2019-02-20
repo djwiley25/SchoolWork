@@ -1,0 +1,7 @@
+I:123
+F:3.14
+D:352.92834
+S:Hello World
+Y~I:43~F:21.3~I:34~S:Wow!
+INPUT:Hello :CONCAT:World!!!
+INPUT:cs 1400:SUBSTRING:3:2

@@ -1,0 +1,245 @@
+Overview
+Goal is to write map/reduce queries using a NoSQL database.
+
+
+Turnin
+Turnin in the file queries.txt using Canvas. You may turnin your assignment as many times as you like.
+
+
+Grading
+The assignment will be graded for functionality.
+
+
+Groups
+The assignment permits you to work in groups of at most two. I will assume that the same groups for the SQL, part 2 assignment. E-mail me if your group has dissolved.
+
+
+CouchDB
+Your task is to install a NoSQL database using CouchDB (Links to an external site.)Links to an external site. and write some queries.
+
+
+Using CouchDB
+Download and configure the software for your system. Then create a database, and within that database a document. To that document add the data in the file data.txt (Links to an external site.)Links to an external site..
+
+
+Deliverables
+A text file, queries.txt, containing solutions in JSON to the following queries. The file should be formatted as follows (values of the fields will vary!).
+----View 1: Count the randomArrayItems
+{
+   "_id": "_design/countRandomArrayItems",
+   "_rev": "2-b4e0bf693aea17edffd8a05ea80b9989",
+   "language": "javascript",
+   "views": {
+       "countRandomArrayItems": {
+           "map": "function(doc) {\n  for (var i in doc.data) {\n    var person = doc.data[i];\n    emit(person.name, 1);\n  }\n}",
+           "reduce": "function(keys, values, rereduce) {\n  return values.length;\n}"
+       }
+   }
+}
+
+
+----View 2: Names of people with max age by gender and isActive
+...
+
+
+Count the randomArrayItems.
+
+
+Result:
+{"rows":[
+{"key":"apple","value":42},
+{"key":"cherry","value":31},
+{"key":"lemon","value":27}
+]}
+A count of people by gender.
+
+
+Result:
+{"rows":[
+{"key":"female","value":58},
+{"key":"male","value":42}
+]}
+A count of people by gender and name.
+
+
+Result:
+{"rows":[
+{"key":["female","Adriana Adams"],"value":1},
+{"key":["female","Ashley Bartlett"],"value":1},
+{"key":["female","Barbra Farmer"],"value":1},
+{"key":["female","Bernadette Hood"],"value":1},
+{"key":["female","Bessie Washington"],"value":1},
+{"key":["female","Blanche Becker"],"value":1},
+{"key":["female","Brandy Randall"],"value":1},
+{"key":["female","Carey James"],"value":1},
+{"key":["female","Catherine Gillespie"],"value":1},
+{"key":["female","Charity Howell"],"value":1},
+{"key":["female","Coleen Peck"],"value":1},
+{"key":["female","Consuelo Clemons"],"value":1},
+{"key":["female","Daisy Franklin"],"value":1},
+{"key":["female","Desiree Saunders"],"value":1},
+{"key":["female","Enid Curtis"],"value":1},
+{"key":["female","Esmeralda Hudson"],"value":1},
+{"key":["female","Faye Solis"],"value":1},
+{"key":["female","Frankie Davenport"],"value":1},
+{"key":["female","Goldie Carr"],"value":1},
+{"key":["female","Greta Chen"],"value":1},
+{"key":["female","Holly Langley"],"value":1},
+{"key":["female","Jeanine Burns"],"value":1},
+{"key":["female","Jerry Odonnell"],"value":1},
+{"key":["female","Jessie Hinton"],"value":1},
+{"key":["female","Judith Hamilton"],"value":1},
+{"key":["female","Katherine Rice"],"value":1},
+{"key":["female","Katrina Velez"],"value":1},
+{"key":["female","Kim Joseph"],"value":1},
+{"key":["female","Krista Kane"],"value":1},
+{"key":["female","Leslie Cobb"],"value":1},
+{"key":["female","Lindsay Wilcox"],"value":1},
+{"key":["female","Lucile Velez"],"value":1},
+{"key":["female","Mable Cole"],"value":1},
+{"key":["female","Maggie Pollard"],"value":1},
+{"key":["female","Mary Hardy"],"value":1},
+{"key":["female","Maryanne Fletcher"],"value":1},
+{"key":["female","Mattie Wiley"],"value":1},
+{"key":["female","Melinda Coffey"],"value":1},
+{"key":["female","Misty Howell"],"value":1},
+{"key":["female","Mollie Wilder"],"value":1},
+{"key":["female","Nadine Franco"],"value":1},
+{"key":["female","Nannie Fleming"],"value":1},
+{"key":["female","Ollie Carroll"],"value":1},
+{"key":["female","Patricia Odom"],"value":1},
+{"key":["female","Pauline George"],"value":1},
+{"key":["female","Rosario Ingram"],"value":1},
+{"key":["female","Rosie Barrera"],"value":1},
+{"key":["female","Ruby Cooke"],"value":1},
+{"key":["female","Sandy Whitaker"],"value":1},
+{"key":["female","Sara Lynch"],"value":1},
+{"key":["female","Selena Conley"],"value":1},
+{"key":["female","Sherrie Mclean"],"value":1},
+{"key":["female","Stacy Byers"],"value":1},
+{"key":["female","Tanisha Obrien"],"value":1},
+{"key":["female","Theresa Baker"],"value":1},
+{"key":["female","Traci Lee"],"value":1},
+{"key":["female","Vickie Reynolds"],"value":1},
+{"key":["female","Winifred Avery"],"value":1},
+{"key":["male","Anthony Rivas"],"value":1},
+{"key":["male","Avila Hopkins"],"value":1},
+{"key":["male","Baker Mejia"],"value":1},
+{"key":["male","Blake Sweeney"],"value":1},
+{"key":["male","Blanchard Schwartz"],"value":1},
+{"key":["male","Brown Wynn"],"value":1},
+{"key":["male","Bryan Shelton"],"value":1},
+{"key":["male","Buchanan Hale"],"value":1},
+{"key":["male","Coleman Marks"],"value":1},
+{"key":["male","Conway Golden"],"value":1},
+{"key":["male","Everett Perkins"],"value":1},
+{"key":["male","Finch Navarro"],"value":1},
+{"key":["male","French Clements"],"value":1},
+{"key":["male","Gay Salas"],"value":1},
+{"key":["male","Gillespie Coleman"],"value":1},
+{"key":["male","Glass Knox"],"value":1},
+{"key":["male","Golden Allen"],"value":1},
+{"key":["male","Guthrie Dejesus"],"value":1},
+{"key":["male","Hahn Lyons"],"value":1},
+{"key":["male","Hansen Espinoza"],"value":1},
+{"key":["male","Hardin Carey"],"value":1},
+{"key":["male","Harmon Downs"],"value":1},
+{"key":["male","Hendrix Chapman"],"value":1},
+{"key":["male","Hernandez Cross"],"value":1},
+{"key":["male","Joseph Conley"],"value":1},
+{"key":["male","Klein Patterson"],"value":1},
+{"key":["male","Medina Bryan"],"value":1},
+{"key":["male","Mitchell Gray"],"value":1},
+{"key":["male","Moreno Bell"],"value":1},
+{"key":["male","Morrow Mcintyre"],"value":1},
+{"key":["male","Newton Moreno"],"value":1},
+{"key":["male","Oconnor Kinney"],"value":1},
+{"key":["male","Puckett Stevenson"],"value":1},
+{"key":["male","Reyes Monroe"],"value":1},
+{"key":["male","Roberson Irwin"],"value":1},
+{"key":["male","Rojas Parrish"],"value":1},
+{"key":["male","Rosario Foreman"],"value":1},
+{"key":["male","Rush Gentry"],"value":1},
+{"key":["male","Shepard Hart"],"value":1},
+{"key":["male","Smith Rivera"],"value":1},
+{"key":["male","West Bullock"],"value":1},
+{"key":["male","York Levine"],"value":1}
+]}
+A count of the people by tags, that is, count all the people with the given value in the tags array.
+
+
+Result:
+{"rows":[
+{"key":"ad","value":10},
+{"key":"adipisicing","value":16},
+{"key":"aliqua","value":9},
+{"key":"aliquip","value":11},
+{"key":"amet","value":7},
+{"key":"anim","value":9},
+{"key":"aute","value":7},
+{"key":"cillum","value":15},
+{"key":"commodo","value":9},
+{"key":"consectetur","value":13},
+{"key":"consequat","value":11},
+{"key":"culpa","value":9},
+{"key":"cupidatat","value":7},
+{"key":"deserunt","value":17},
+{"key":"do","value":13},
+{"key":"dolor","value":12},
+{"key":"dolore","value":16},
+{"key":"duis","value":11},
+{"key":"ea","value":14},
+{"key":"eiusmod","value":13},
+{"key":"elit","value":11},
+{"key":"enim","value":16},
+{"key":"esse","value":6},
+{"key":"est","value":15},
+{"key":"et","value":10},
+{"key":"eu","value":18},
+{"key":"ex","value":9},
+{"key":"excepteur","value":13},
+{"key":"exercitation","value":16},
+{"key":"fugiat","value":4},
+{"key":"id","value":15},
+{"key":"in","value":9},
+{"key":"incididunt","value":13},
+{"key":"ipsum","value":11},
+{"key":"irure","value":13},
+{"key":"labore","value":6},
+{"key":"laboris","value":14},
+{"key":"laborum","value":9},
+{"key":"Lorem","value":5},
+{"key":"magna","value":11},
+{"key":"minim","value":6},
+{"key":"mollit","value":10},
+{"key":"nisi","value":6},
+{"key":"non","value":11},
+{"key":"nostrud","value":10},
+{"key":"nulla","value":14},
+{"key":"occaecat","value":11},
+{"key":"officia","value":19},
+{"key":"pariatur","value":15},
+{"key":"proident","value":14},
+{"key":"qui","value":13},
+{"key":"quis","value":9},
+{"key":"reprehenderit","value":15},
+{"key":"sint","value":7},
+{"key":"sit","value":7},
+{"key":"sunt","value":10},
+{"key":"tempor","value":22},
+{"key":"ullamco","value":9},
+{"key":"ut","value":9},
+{"key":"velit","value":9},
+{"key":"veniam","value":9},
+{"key":"voluptate","value":12}
+]}
+The JSON of the latitude, longitude, and address of each employee that has a latitude of more than 80 (note, no reduce is needed).
+
+
+Result:
+{"total_rows":4,"offset":0,"rows":[
+{"id":"sampledata","key":[80.226746,-147.645001,"678 Concord Street, Rivera, Maine, 3219"],"value":1},
+{"id":"sampledata","key":[81.133896,154.05355,"774 Oxford Walk, Shaft, Alabama, 5832"],"value":1},
+{"id":"sampledata","key":[82.915282,112.114955,"837 Bedford Avenue, Eden, Georgia, 2209"],"value":1},
+{"id":"sampledata","key":[84.230142,132.762628,"387 Schaefer Street, Slovan, Vermont, 2705"],"value":1}
+]}
