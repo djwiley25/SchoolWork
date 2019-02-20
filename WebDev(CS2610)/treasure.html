@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aggie Island</title>
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	
+	<!--feel free to embelish, but ensure you don't disrupt playability-->
+	<style>
+        body{
+			text-align:center;
+		}
+		img{
+			display: block;
+			margin: auto;
+		}
+	</style>
+</head>
+<body>
+    <h1 id="heading">Find the buried treasure!</h1>
+    
+    <img id="map" width=800 height=600 src="https://ruinexplorer.github.io/Pirate-Map-USU-Campus.png">
+    
+    <p id="distance">Click on the map to search for the Treasure!</p>
+    
+    <script>
+        //Add your code here
+        //Declare variables
+        var width=document.getElementById("map").width;
+        var height=document.getElementById("map").height;
+        var sideAvg=(width+height)/2;
+        var clicks=0;
+
+        //get random number between 0 and the size
+        var getRandomNum=function(size){
+        	return Math.floor(Math.random()*size);
+        };
+
+       	//random target location
+       	var target={
+       		x:getRandomNum(width),
+       		y:getRandomNum(height)
+       	};
+
+       	//calculate distance between two points (pythag theorem)
+       	var getDistance=function(event, target){
+       		var deltaX = event.offsetX - target.x;
+       		var deltaY = event.offsetY - target.y;
+       		return Math.sqrt((deltaX*deltaX)+(deltaY*deltaY));
+       	};
+
+       	//get hint representing distance, use a string
+       	var getDistanceHint=function(distance){
+       		if(distance<sideAvg*.025){
+       			return "Boiling hot!!";
+       		}else if(distance<sideAvg*.05){
+       			return "Really Hot";
+       		}else if(distance<sideAvg*.10){
+       			return "Hot";
+       		}else if(distance<sideAvg*.20){
+       			return "Warm";
+       		}else if(distance<sideAvg*.40){
+       			return "Cold";
+       		}else if(distance<sideAvg*.80){
+       			return "Really Cold";
+       		}else{
+       			return "Freezing!!";
+       		}
+       	};
+
+       	//click event
+       	document.getElementById("map").onclick=function(event){
+       		clicks++;
+       		//get the distance between the click and the target location
+       		var distance=getDistance(event,target);
+       		//convert distanceHint to string
+       		var distanceHint=getDistanceHint(distance);
+       		//update the distance element with new hint
+       		document.getElementById("distance").innerHTML=("ARRG! You've dug "+ clicks + " empty holes, you be " + distanceHint);
+       		//win condition
+       		if(distance<sideAvg*.02){
+       			alert("You found the booty in " + clicks + " clicks!");
+            clicks=0;
+            target.x=getRandomNum(width);
+            target.y=getRandomNum(height);
+            document.getElementById("distance").innerHTML=("Click on the map to search for the Treasure!");
+       		}
+          if(clicks>50){
+            alert("Game Over!! Too many clicks!!");
+            clicks =0;
+            target.x=getRandomNum(width);
+            target.y=getRandomNum(height);
+            document.getElementById("distance").innerHTML=("Click on the map to search for the Treasure!");
+          }
+       	};
+
+    </script>
+</body>
+</html>

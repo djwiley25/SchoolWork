@@ -1,0 +1,121 @@
+%!
+
+% Jonathan Petersen
+% A01236750
+% Postscript Assignment
+% Hypotrochoid Operator
+
+% NAME
+%	hypotrochoid - Hypotrochoid generator
+%
+% SYNOPSIS
+%	[a] [b] [d] [r] hypotrochoid
+%
+% DESCRIPTION
+%	Generates a hypotrochoid based on the arguments given, according to the following formulas
+%	x_n = ( (a - b) * cos(t) ) + ( d * cos( ((a - b) * t) / b ) )
+%	y_n = ( (a - b) * sin(t) ) - ( d * sin( ((a - b) * t) / b ) )
+%		for t = 0 .. 360 * r
+%
+% EXAMPLES
+%	100 25 40 1 hypotrochoid
+%	100 47 20 7 hypotrochoid
+%
+
+/hypotrochoid
+{
+
+	/r exch def
+	/d exch def
+	/b exch def
+	/a exch def
+	/t 0 def
+
+	% newpath
+
+	{
+		/x {
+
+			% (a - b) * cos(t)
+			a b sub
+			t cos
+			mul
+
+			% ((a - b) * t) / b
+			a b sub
+			t mul
+			b div
+			cos
+
+			d mul
+
+			add
+
+		} def
+
+		/y {
+
+			% (a - b) * sin(t)
+			a b sub
+			t sin
+			mul
+
+			% sin(((a - b) * t) / b)
+			a b sub
+			t mul
+			b div
+			sin
+
+			d mul
+
+			sub
+
+		} def
+
+		% Initialize to the first position
+		t 0 eq
+			{ x y moveto }
+		if
+
+		% Otherwise Draw the next line segment
+		t 0 eq not
+			{ x y lineto }
+		if
+
+		% Update t
+		t r add
+		/t exch def
+
+		% If t > 360r => exit
+		t 360 r mul ge
+			{ exit }
+		if
+	} loop
+
+} def
+
+/inch {72 mul} def
+
+140 25 translate
+0 0 moveto
+(60 19 25 12 hypotrochoid) show
+0 125 translate
+60 19 25 12 hypotrochoid
+stroke
+
+0 125 translate
+0 0 moveto
+(100 47 20 30 hypotrochoid) show
+0 125 translate
+100 47 20 30 hypotrochoid
+stroke
+
+0 125 translate
+0 0 moveto
+(100 25 40 1 hypotrochoid) show
+0 125 translate
+100 25 40 1 hypotrochoid
+stroke
+showpage
+
+quit

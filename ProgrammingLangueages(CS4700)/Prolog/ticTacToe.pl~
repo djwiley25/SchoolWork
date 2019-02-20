@@ -1,0 +1,35 @@
+# Recording accompanies this example
+# Whitespace doesn't matter
+
+:- dynamic cell/3.
+:- dynamic turn/1.
+
+turn(x).
+
+nextturn(x,o).
+nextturn(o,x).
+
+win(Player) :- cell(Row,a,Player),cell(Row,b,Player),cell(Row,c,Player).
+win(Player) :- cell(a,Col,Player),cell(b,Col,Player),cell(c,Col,Player).
+win(Player) :- cell(a,a,Player),cell(b,b,Player),cell(c,c,Player).
+win(Player) :- cell(a,c,Player),cell(b,b,Player),cell(c,a,Player).
+
+done :- win(_).
+done :- cell(a,a,_),cell(a,b,_),cell(a,c,_),
+        cell(b,a,_),cell(b,b,_),cell(b,c,_),
+        cell(c,a,_),cell(c,b,_),cell(c,c,_).
+
+writecell(R,C) :- cell(R,C,x),!,write('x').
+writecell(R,C) :- cell(R,C,o),!,write('o').
+writecell(_,_) :- write('').
+
+
+
+canmove(Row,Col):-cell(Row,Col,_),!,fail.       #!(the cut) is backtrack. For this rule only order matters
+canmove(_,_).                                   #made this edit later, used to be canmove(Row,Col).
+
+move(Row,Col) :-  canmove(Row,Col),turn(Player),
+                  assertz(cell(Row,Col,Player)),
+                  retract(turn(Player)),
+                  nextturn(Player,NewPlayer),
+                  assertz(turn(NewPlayer)).

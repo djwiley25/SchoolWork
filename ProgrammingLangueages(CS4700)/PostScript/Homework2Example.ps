@@ -1,0 +1,30 @@
+/X {
+  1 sub /n exch def
+  n 0 eq
+  {F}
+  {n n n n X L X R R X L X}     %just rewriting rule
+  ifelse
+} def
+
+/F {
+  2 0 rlineto
+} def
+
+/R {
+  -60 rotate
+} def
+
+/L {
+  60 rotate
+} def
+
+40 rotate
+newpath
+100 100 moveto
+5
+7 X
+stroke
+
+showpage
+
+quit

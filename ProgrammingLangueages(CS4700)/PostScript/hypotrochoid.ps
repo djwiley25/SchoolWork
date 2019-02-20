@@ -1,0 +1,70 @@
+%!PS
+%
+% DJ Wiley
+% A01099945
+% Postscript Hypotrochoid Assignment
+
+% Write a postscript file that displays some number of hypotrochoids
+%
+% The parametric formula is:
+%   x(t) = ((a - b) * cos(t)) + (d * cos(((a - b) * t) / b))
+%   y(t) = ((a - b) * sin(t)) - (d * sin(((a - b) * t) / b))
+
+/hypotrochoid
+{
+	/a exch def
+	/b exch def
+	/d exch def
+	/t exch def
+
+	% ((a - b) * cos(t))
+	a b sub t cos mul
+
+	% (d * cos(((a - b) * t) / b))
+	a b sub t mul b div cos d mul
+
+	% add the two items remaining on the stack to get x(t)
+	add
+
+	% ((a - b) * sin(t))
+	a b sub t sin mul
+
+	% (d * sin(((a - b) * t) / b))
+	a b sub t mul b div sin d mul
+
+	% subtract the two items on the stack to get y(t)
+	sub
+
+} def
+
+/inch { 72 mul } def
+
+% center the hypotrochoid
+4.25 inch 5.5 inch translate
+
+0 30 360
+{
+	1 1 720
+	{
+		newpath
+		0 0 moveto
+    % Start setting rgb colors to rotate based on t incrementing in the loop
+		dup
+		dup
+    100 div
+    exch
+    370 div
+    exch 0
+		setrgbcolor
+
+		% t d b a
+		125 190 275
+		hypotrochoid lineto
+		stroke
+	} for
+	rotate
+} for
+
+showpage
+
+quit

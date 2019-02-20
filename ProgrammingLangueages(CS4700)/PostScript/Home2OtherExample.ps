@@ -1,0 +1,90 @@
+
+%!PS
+%
+% DJ Wiley
+% A01099945
+% Postscript I-Fractal Assignment
+
+/angle 25 def
+/len 15 def
+
+% /incRed { 0.1 } def
+% /incGreen { 0.3 } def
+% /incBlue { 0.5 } def
+
+/F
+{
+% incRed
+% incGreen
+% incBlue
+% setrgbcolor
+newpath
+0 0 moveto
+len 0 lineto
+stroke
+len 0 translate
+} def
+
+/L
+{
+angle rotate
+} def
+
+/R
+{
+angle neg rotate
+} def
+
+/Push {gsave} def
+
+/Pop {grestore} def
+
+
+
+/X
+{
+  1 sub
+  /n exch def
+  n 0 gt
+  {
+    n n n n F R Push Push X Pop L X Pop L F Push L F X Pop R X     %two X's so put n on twice
+  }
+  if
+} def
+
+/Y
+{
+  1 sub
+  /n exch def
+  n 0 gt
+  {
+    n n n  Y F Y Push  5 X Pop L Y
+  }
+  if
+} def
+
+/Z
+{
+  1 sub
+  /n exch def
+  n 0 gt
+  {
+    n n 1 sub F Push L Z Pop R Z
+  }
+  if
+} def
+
+
+100 100 translate
+
+10 Z
+
+-200 -400 translate
+
+7 X
+
+-200 200 translate
+
+4 Y
+
+showpage

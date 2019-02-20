@@ -1,0 +1,21 @@
+Coded Notes CS2610 10/17/16
+
+Creating a Module
+
+
+var hello=function(){
+	console.log("Hello World!")
+};
+module.exports=hello;
+
+//Different file
+var hello=require('./custom_hello');
+var gb=require('./custom_goodbye')
+
+hello();
+
+//Another syntax
+exports.goodbye=function(){
+	console.log("Goodbye Cruel World!!");
+}
+module.exports=hello;

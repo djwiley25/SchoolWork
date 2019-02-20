@@ -1,0 +1,81 @@
+%!PS
+%
+% DJ Wiley
+% A01099945
+% Postscript Hypotrochoid Assignment
+
+% Assignment Description
+% Write a postscript file that displays some number of hypotrochoids
+%
+% The parametric formula is:
+%   x(t) = ((a - b) * cos(t)) + (d * cos(((a - b) * t) / b))
+%   y(t) = ((a - b) * sin(t)) - (d * sin(((a - b) * t) / b))
+
+/hypotrochoid
+{
+	/r exch def
+	/d exch def
+	/b exch def
+	/a exch def
+	/t 0 def
+
+	{
+		/x {
+			% ((a - b) * cos(t))
+			a b sub t cos mul
+
+			% (d * cos(((a - b) * t) / b))
+			a b sub t mul b div cos d mul
+
+			% add the two items remaining on the stack to get x(t)
+			add
+
+		} def
+
+		/y{
+			% ((a - b) * sin(t))
+			a b sub t sin mul
+
+			% (d * sin(((a - b) * t) / b))
+			a b sub t mul b div sin d mul
+
+			% subtract the two items on the stack to get y(t)
+			sub
+
+		} def
+
+		% Initialize hypotrochoid to first position if t == 0
+		t 0 eq
+		{ x y moveto}
+		if
+
+		% If not first position, draw next line
+		t 0 eq not
+		{x y lineto}
+		if
+
+		% Update t for the loop
+		t r add
+		/t exch def
+
+		% If t is greater than 360 times r exit loop
+		t 360 r mul ge
+		{ exit }
+		if
+
+		} loop
+
+} def
+
+/inch { 72 mul } def
+
+% center the hypotrochoid
+4.25 inch 5.5 inch translate
+
+0 125 translate
+0 0 moveto
+100 25 40 1 hypotrochoid
+stroke
+showpage
+
+quit

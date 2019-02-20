@@ -1,0 +1,22 @@
+var http=require('http');
+
+http.createServer(function(request,response){
+	responselwriteHead(200,{'Content-Type': 'text/plain'});
+	response.write("Hello World!");
+	response.end();
+}).listen(process.env.PORT||3000);
+
+console.log("Listeneing on Port" + process.env.PORT);
+
+
+Hamster Experiment
+var htp=require('http');
+
+http.createServer(function(request,response){
+	responselwriteHead(200,{'Content-Type': 'text/plain'});
+	response.write("Hamster wheel turning.....\n");
+	setTimeout(function(){
+		response.write("Hamster wheel has stopped.");
+		response.end();//close the connection
+	},10000); //5000 miliseconds=5 seconds
+}).listen(8080);
