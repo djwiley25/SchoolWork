@@ -1,0 +1,56 @@
+For this assignment, you are to write the implementation of a lunar lander class that has been specified in a file called "lunarLander.h".  This class is designed to model a simple lunar lander that can rotate left or right, and can burn fuel in a rocket engine to provide thrust.
+
+There are three files involved in this assignment:
+
+ lunarLander.h - the specification file that is given to you
+
+lunarLander.cpp - the implementation file that you must write
+
+landerSim.cpp - the client file that uses your implementation
+
+
+
+Additionally, in order to help you test your code, I have supplied you with a file called checkoutFlight.cpp, which you can compile with lunarLander.cpp to test the basic functionality of your class implementation.  Each of these files is available  in the directory called lunarLander on the Google Drive where you find all the class notes.  landerSim.cpp and checkoutFlight.cpp are subject to change at any time.
+
+Note that in landerSim.cpp, there is a #include "lunarLander.h".  You'll do the same for your implementation file, but in that file, you need only define the functions called for in the specification file. Make no modifications to lunarLander.h, or your code will not run when we grade it.
+
+To help you get rolling on your lander implementation, here are a few rules that govern how the lander behaves:
+
+You are allowed to choose your own (hopefully reasonable) initial values for your default constructor.
+
+Your code must check the values given it by the non-default constructor.  In particular, initial angles less than 0 or greater than 2*PI, negative fuel amounts, positions with y less than 0, negative MTV values, and having both crashed and landed set to true are disallowed.  You may choose how to deal with each of these errors.
+
+rotateLeft(), rotateRight(), and burn() may be called multiple times before updateTime().  rotateLeft() and rotateRight() both accept a positive rotate angle in radians.  Negative inputs for these are to be converted to positive values.  The sum of all the rotation commands is not allowed to exceed PI/12.0 in either direction.  The sum of all the burn commands must not exceed 50.  You may not burn negative fuel.  You should use the private member variables rotatedThisTurn and fuelBurnedThisTurn to keep track of the sum of all the commands since the last timeUpdate().
+
+The timeUpdate() function is where most of the activity happens. You need to set your new angle and fuel amounts, figure out your thrust vector (1 unit of fuel burned equals an acceleration of 1 m/s^2).  Figure out your new velocity vector, and then calculate your new position.  You need to figure out if you've crashed or landed, and you should reset your rotateThisTurn and fuelBurnedThisTurn variables to get ready for new commands.
+
+Remember that you can't burn fuel you don't have.
+
+
+What to turn in:  lunarLander.cpp.  Turn in no other files.  Do not turn in a .zip archive.
+
+
+
+HInts:
+
+1. The exact code I use to calculate the thrust is
+
+        thrust.x=cos(angle)*fuelBurnedThisTurn;
+
+        thrust.y=sin(angle)*fuelBurnedThisTurn;
+
+
+
+2. Overloading the '+' operator to add two Vects together will greatly simplify your code.
+
+
+
+3.  Because our time update is in 1-second increments...
+
+...your new velocity is your old velocity plus your thrust plus G
+
+...your new position is you old position plus the velocity
+
+
+
+Your code must compile with zero errors and zero warnings.

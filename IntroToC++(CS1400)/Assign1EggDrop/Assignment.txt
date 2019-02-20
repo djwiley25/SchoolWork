@@ -1,0 +1,34 @@
+An unladen European swallow wishes to conduct an ad hoc experiment wherein a raw egg is to be delivered with the aid of a motorized aeroplane to an otherwise preoccupied professor traveling across the USU quad.
+
+The gravitational constant (g) is known to be 9.8m/s^2.   Given a value for h (the height of the aeroplane in meters) and the value for v (the forward velocity of the aeroplane in m/s), at what distance d from the professor should the egg be released in order to correctly deliver the egg to the indicated destination?  And how much airtime will the egg enjoy before its abrupt termination?
+
+A hint is cleverly hidden somewhere in the diagram that may be helpful for you when calculating a solution for d and v.
+
+For this assignment, you are to write two functions: GetD(float v, float h) that accepts two floats, v and h (in that order) that returns the correct value for d; and GetT(float v, float d ) that returns the correct value for t.
+
+To aid you with this, you are given a file eggdrop.cpp that contains a main() function that calls your functions several times.  You should modify this file by adding your name, a-number, and section to the comments at the top, and then by adding your code between the "//start of your code" and "//end of your code" comments ONLY.  Make no code changes outside this section.
+
+To be painfully clear, your code should NOT ask the user for input or write anything to the screen.
+
+After compiling and running the resulting program you should get this output (minor variations in the actual values are acceptable):
+
+v = 30     h = 100     d = 135.526     t = 4.51754
+v = 40     h = 100     d = 180.702     t = 4.51754
+
+v = 50     h = 100     d = 225.877     t = 4.51754
+
+v = 50     h = 200     d = 319.438     t = 6.38877
+
+v = 50     h = 300     d = 391.23     t = 7.82461
+
+v = 50     h = 400     d = 451.754     t = 9.03508
+
+v = 50     h = 500     d = 505.076     t = 10.1015
+
+v = 200     h = 10000     d = 9035.08     t = 45.1754
+
+
+
+What to turn in:  a single .cpp file with your and the original code in it.
+
+Your code must compile with zero errors and zero warnings.

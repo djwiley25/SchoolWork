@@ -1,0 +1,31 @@
+In this assignment, you are to write a function called life() that has two parameters.  The first is a const bool array of size ROWS x COLS called "current" that describes the current state of a game of Conway's Game of Life.  The second is a bool array of size ROWS x COLS that your function will set to the next state of the game.
+
+You can learn all about the Game of Life at http://en.wikipedia.org/wiki/Conway's_Game_of_Life (Links to an external site.)Links to an external site..
+
+From wikipedia:
+
+The universe of the Game of Life is an infinite two-dimensional orthogonal (Links to an external site.)Links to an external site. grid of square cells, each of which is in one of two possible states, alive or dead. Every cell interacts with its eight neighbours (Links to an external site.)Links to an external site., which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:
+
+Any live cell with fewer than two live neighbours dies, as if caused by under-population.
+Any live cell with two or three live neighbours lives on to the next generation.
+Any live cell with more than three live neighbours dies, as if by overcrowding.
+Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+To help you in this assignment, take a look at the shared google drive directory for this class labeled "gameOfLife".  In it, you will find the following files:
+
+life.h - this file is a header file that contains the definitions for ROWS and COLS, and the function prototype for your function.
+
+gameOfLife.cpp - a client program that calls life() when it needs the next generation of the game.  It is set to run for 100 turns.  Just hit the carriage return when you want the next state.
+
+checkoutLife.cppcheckoutLife.cppcheckoutLife.cpp - a different client program that runs several tests on your life() to make sure it is operating at a basic level.
+
+What to do:
+
+1. You need to write a file life.cpp that implements the function prototyped in life.h.  You can and should write other functions and tuck them into the same file; whatever you need to get your function working in an elegant manner.
+
+2. Compile your file with checkoutLife.cpp and run the resulting executable to see if it passes all the tests.
+
+3. Compile your file with gameOfLife.cpp and run the resulting executable to see if it makes pretty pictures.
+
+4. If you are convinced steps 2 and 3 are working, submit your life.cpp via canvas.
+
+Your code must compile with zero errors and zero warnings.

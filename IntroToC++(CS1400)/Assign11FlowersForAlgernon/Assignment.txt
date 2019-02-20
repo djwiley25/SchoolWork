@@ -1,0 +1,5 @@
+Write the function algernon.   See the directory called algernon in the main Google drive for the class.  Read algernon.h for the details.  Turn in algernon.cpp.
+
+
+
+Your code must compile with zero errors and zero warnings.
