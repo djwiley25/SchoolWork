@@ -1,0 +1,72 @@
+#h1-id-username {
+    z-index: 3;
+    position: absolute;
+}
+
+#field-clock {
+    z-index: 3;
+    position: absolute;
+}
+
+#ammo-display {
+    z-index: 3;
+    position: absolute;
+}
+
+#health-display {
+    z-index: 3;
+    position: absolute;
+}
+
+#canvas-pregame {
+    z-index: 4;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#canvas-mini {
+    background-color: teal;
+    z-index: 3;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+}
+
+#canvas-mini-shield {
+    background-color: transparent;
+    z-index: 3;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+}
+
+#canvas-right {
+    background-color: teal;
+    z-index: 2;
+    position: absolute;
+    top: 0px;
+}
+
+#canvas-main {
+    background-color: teal;
+    z-index: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#canvas-main-shield {
+    background-color: transparent;
+    z-index: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#log-bar {
+    background-color: transparent;
+    z-index: 3;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html lang = "en-US">
+<head>
+	<meta charset = "UTF-8">
+	<title>Battle Royal</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/tiling.css">
+</head>
+<body>
+
+  <div id="id-welcome" class="container">
+
+    <div class="card border-primary mb-3">
+      <h1>Welcome!</h1>
+      <input type="text" id="id-username" placeholder="Username">
+      <br>
+      <input type="password" id="id-password" placeholder="Password">
+      <br>
+      <span id="id-signinerror"  style="color:red"></span>
+      <br>
+      <button id="button-signin" class="btn btn-primary">Sign In</button>
+    </div>
+    <br>
+
+    <button id="button-newuser" class="btn btn-primary">Create New User</button>
+  </div>
+
+  <div id="id-signup" class="container">
+
+    <div class="card border-primary mb-3">
+      <h1>Sign up!</h1>
+      <input type="text" id="id-newusername" name="name-username" placeholder="Username">
+      <br>
+      <input type="password" id="id-newpassword" name="name-password" placeholder="Password">
+      <br>
+      <input type="password" id="id-newpassword2" name="name-password2" placeholder="Verify Password">
+      <br>
+      <span id="id-signuperror"  style="color:red"></span>
+      <br>
+      <button id="button-signup" class="btn btn-primary">Sign Up</button>
+    </div>
+
+    <br>
+
+    <button id="button-signinret" class="btn btn-primary">Sign In</button>
+  </div>
+
+  <div id="id-join" class="container">
+
+      <div class="card border-primary mb-3">
+        <button id="button-join" class="btn btn-primary">Join Game</button>
+        <br>
+        <button id="button-highscores" class="btn btn-primary">High Scores</button>
+        <br>
+        <button id="button-options" class="btn btn-primary">Options</button>
+      </div>
+  </div>
+
+  <div id="id-chat" class="container">
+
+    <div id="chat-bar" class="card border-primary mb-3 fixed-top fixed-bottom pre-scrollable">
+      <ul id="messages" class="list-group"></ul>
+      <br>
+    </div>
+    <div class="card border-bottom fixed-bottom">
+      <div id="min-players" class="card text-white bg-info mb-3 align-self-center"  style="max-width: 20rem;">
+        <div class="card-header">Minimum number of players joined</div>
+        <div class="card-body">
+          <h4 id="countdown" class="card-title">Ready to Start in: 10</h4>
+          <p class="card-text">Prepare your fingers, blood will be spilt!!!</p>
+        </div>
+      </div>
+      <button id="button-chat" class="btn btn-primary border-bottom-0">Send</button>
+      <br>
+      <input type="text" id="input-send" placeholder="...type text here...">
+      <br>
+    </div>
+  </div>
+
+
+  <div id="id-highscores" class="container">
+    <div class="card border-primary mb-3">
+      <h1>High Scores!</h1>
+      <ol id="id-scores-list" class="list-group"></ol>
+    </div>
+
+    <br>
+
+    <button id="button-high-back" class="btn btn-primary">Back</button>
+  </div>
+
+  <div id="id-options" class="container">
+
+    <div class="card border-primary mb-3">
+        <script type="text/javascript">
+          function displayunicode(e, id){
+              var unicode=e.keyCode? e.keyCode : e.charCode;
+              //alert(unicode);
+              console.log(unicode, id);
+              localStorage[id] = JSON.stringify(unicode);
+          }
+          function displayKey(e){
+
+          }
+          </script>
+      <h1>Options</h1>
+      <h2>To Change from the default controls select the control you want to change and press the key you would like to change it to.</h2>
+      <p>Move Up  Default: W</p>
+      <input type="text" id="move-up" size="2" maxlength="1" onkeyup= "displayunicode(event, 'move-up'); this.select();">
+      <p>Move Down  Default: S</p>
+      <input type="text" id="move-down" size="2" maxlength="1" onkeyup="displayunicode(event, 'move-down'); this.select()">
+      <p>Move Left  Default: A</p>
+      <input type="text" id="move-left" size="2" maxlength="1" onkeyup="displayunicode(event, 'move-left'); this.select()">
+      <p>Move Right  Default: D</p>
+      <input type="text" id="move-right" size="2" maxlength="1" onkeyup="displayunicode(event, 'move-right'); this.select()">
+      <p>Rotate Left Default: &larr;</p>
+      <input type="text" id="rotate-left" size="2" maxlength="1" onkeyup="displayunicode(event, 'rotate-left'); this.select()">
+      <p>Rotate Right Default: &rarr;</p>
+      <input type="text" id="rotate-right" size="2" maxlength="1" onkeyup="displayunicode(event, 'rotate-right'); this.select()">
+      <p>Fire  Default: &uarr;</p>
+      <input type="text" id="fire" size="2" maxlength="1" onkeyup="displayunicode(event, 'fire'); this.select()">
+      <p>Flip Default:&darr;</p>
+      <input type="text" id="flip" size="2" maxlength="1" onkeyup="displayunicode(event, 'flip'); this.select()">
+    </div>
+
+    <br>
+    <button id="button-options-back" class="btn btn-primary">Back</button>
+  </div>
+
+  <div id="id-game">
+    <canvas id = "canvas-mini"></canvas>
+    <canvas id = "canvas-mini-shield"></canvas>
+    <canvas id = "canvas-main"></canvas>
+    <canvas id = "canvas-main-shield"></canvas>
+    <canvas id = "canvas-right"></canvas>
+    <canvas id = "canvas-pregame"></canvas>
+    <div id="log-bar" class="card border-primary mb-3 fixed-top fixed-bottom pre-scrollable">
+      <ul id="logmessages" class="list-group"></ul>
+      <br>
+    </div>
+
+    <h1 id="h1-id-username"></h1>
+    <h1 id="field-clock"></h1>
+    <h1 id="health-display"></h1>
+    <h1 id="ammo-display"></h1>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="scripts/persistant/network-ids.js"></script>
+  <script src="scripts/client/sha256.min.js"></script>
+  <script src="scripts/client/script.js"></script>
+  <script src="scripts/persistant/assets.js"></script>
+  <script src="scripts/client/graphics.js"></script>
+  <script src="scripts/client/input.js"></script>
+  <script src="scripts/client/userData.js"></script>
+  <script src="scripts/client/clientGame.js"></script>
+</body>
+</html>
