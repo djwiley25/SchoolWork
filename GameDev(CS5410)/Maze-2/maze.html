@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Maze</title>
+</head>
+<body>
+  <div class="maze-outer">
+    <div class="maze-inner">
+      <div class="maze-score">Score: 0</div>
+      <div class="maze-timer">Time: 2:45</div>
+
+      <div>
+        <canvas id="maze-canvas" width="1000"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <ul class="footer-ul">
+      <li><button id="HINT">Hint</button></li>
+      <li><button id="BREAD">Tracks</button></li>
+      <li><button id="PATH">Solve</button></li>
+      <li><button id="SCORE">Score</button></li>
+    </ul>
+  </div>
+
+  <div class="win-div" hidden="true">
+    <p class="congrats">Congrats You Won!!</p>
+    <div><button class="win-button" id="again">Again</button></div>
+    <div><button class="win-button" id="done">Done</button></div>
+  </div>
+
+  <!-- JavaScript -->
+  <script type="text/javascript" src="js/lib/jquery.min.js"></script>
+  <script type="text/javascript" src="js/MazeSolver.js"></script>
+  <script type="text/javascript" src="js/MazeSolverMoves.js"></script>
+  <script type="text/javascript" src="js/MazeSolverRender.js"></script>
+  <script type="text/javascript" src="js/maze.js"></script>
+</body>
+</html>

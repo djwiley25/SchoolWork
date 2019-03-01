@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Maze</title>
+  <meta name="viewport" content="width=320, initial-scale=1.0, user-scalable=no">
+</head>
+<body>
+  <div class="maze-out">
+    <div class="maze-in">
+      <div class="maze-score">Score: 0</div>
+      <div class="maze-timer">Time: 2:45</div>
+
+      <div>
+        <canvas id="maze-canvas" width="1000"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <ul class="footer-ul">
+      <li><button id="HINT">Hint</button></li>
+      <li><button id="BREADCRUMB">BreadCrumbs</button></li>
+      <li><button id="SPATH">Shortest Path</button></li>
+      <li><button id="SCORE">Score</button></li>
+    </ul>
+  </div>
+
+  <div class="win-div" hidden="true">
+    <p class="finish">You made it out alive!!</p>
+    <div><button class="win-button" id="again">Again</button></div>
+    <div><button class="win-button" id="done">Done</button></div>
+  </div>
+
+  <!-- JavaScript -->
+  <script type="text/javascript" src="js/mazeSolve.js"></script>
+  <script type="text/javascript" src="js/mazeSolveGameLoop.js"></script>
+  <script type="text/javascript" src="js/mazeSolvePlayerMoves.js"></script>
+  <script type="text/javascript" src="js/mazeSolveShortestPath.js"></script>
+  <script type="text/javascript" src="js/mazeSolveRender.js"></script>
+  <script type="text/javascript" src="js/maze.js"></script>
+</body>
+</html>

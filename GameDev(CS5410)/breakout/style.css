@@ -1,0 +1,50 @@
+html {
+	height: 100%;
+	width: 100%;
+	background: #FFFFFF;
+}
+
+body {
+	width: 80%;
+	height: 100%;
+	background: #FFFFFF;
+	color: #000000;
+	margin: 0px auto;
+	text-align: center;
+}
+
+h1 {
+	margin: 0px auto;
+	padding-top: 5%;
+}
+
+#container {
+	position: relative;
+	width: 780px;
+	height: 500px;
+	/*display: inline-block;*/
+	margin: 0px auto;
+}
+
+#canvas {
+	position: absolute;
+	background: #000000;
+	border: solid;
+	border-width: 1px;
+	width: 768px;
+	margin: 0px auto;
+	left: 0px;
+	top: 0px;
+	z-index: 1;
+}
+
+#menu {
+	position: absolute;
+	/*background: #FFFFFF;*/
+	margin: 0px auto;
+	left: 0px;
+	top: 0px;
+	border: solid;
+	border-width: 1px;
+	z-index: 2;
+}
